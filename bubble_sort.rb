@@ -1,16 +1,16 @@
 def bubble_sort(array)
-  array.each_index do |index|
-    if (index != array.length - 1) && (array[index + 1] - array[index] < 0)
-      array.insert((index + 1), array.delete_at(index))
+  n = array.length
+  for k in (1..n)
+    for i in (1..(n-1))
+      if array[i-1] > array[i]
+        array[i-1], array[i] = array[i], array[i-1]
+        newn = i
+      end
     end
+    n = newn
+  break if n <= 1
   end
-  array.each_index do |index|
-    if (index != array.length - 1) && (array[index] > array[index + 1])
-      bubble_sort(array)
-    end
-  end
-return array
-
+  array
 end
 
 array = [29, 51, 90000, 1, 35, 25252525, 12]
